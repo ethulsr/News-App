@@ -1,0 +1,30 @@
+{
+    "sourceFile": "lib/widgets/bottom_nav_bar.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1720018318880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1720018564368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         ),\r\n       ],\r\n       currentIndex: currentIndex,\r\n       onTap: onTap,\r\n-      selectedItemColor: Colors.black, // Set selected icon color\r\n-      unselectedItemColor: Colors.grey, // Set unselected icon color\r\n+      selectedItemColor: Colors.red, \r\n+      unselectedItemColor: Colors.grey, \r\n     );\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1720018872849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import 'package:flutter/material.dart';\r\n+import 'package:news_today/utils/apptheme.dart';\r\n \r\n class BottomNavBar extends StatelessWidget {\r\n   final int currentIndex;\r\n   final ValueChanged<int> onTap;\r\n@@ -30,7 +31,8 @@\n       currentIndex: currentIndex,\r\n       onTap: onTap,\r\n       selectedItemColor: Colors.red,\r\n       unselectedItemColor: Colors.grey,\r\n+      backgroundColor: apptheme.secondaryColor,\r\n     );\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1720018891567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n       ],\r\n       currentIndex: currentIndex,\r\n       onTap: onTap,\r\n       selectedItemColor: Colors.red,\r\n-      unselectedItemColor: Colors.grey,\r\n+      unselectedItemColor: Colors.white,\r\n       backgroundColor: apptheme.secondaryColor,\r\n     );\r\n   }\r\n }\r\n"
+                }
+            ],
+            "date": 1720018318880,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\n\r\nclass BottomNavBar extends StatelessWidget {\r\n  final int currentIndex;\r\n  final ValueChanged<int> onTap;\r\n\r\n  const BottomNavBar({\r\n    Key? key,\r\n    required this.currentIndex,\r\n    required this.onTap,\r\n  }) : super(key: key);\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return BottomNavigationBar(\r\n      items: const <BottomNavigationBarItem>[\r\n        BottomNavigationBarItem(\r\n          icon: Icon(Icons.home),\r\n          label: 'Home',\r\n        ),\r\n        BottomNavigationBarItem(\r\n          icon: Icon(Icons.category),\r\n          label: 'Categories',\r\n        ),\r\n        BottomNavigationBarItem(\r\n          icon: Icon(Icons.search),\r\n          label: 'Search',\r\n        ),\r\n      ],\r\n      currentIndex: currentIndex,\r\n      onTap: onTap,\r\n      selectedItemColor: Colors.black, // Set selected icon color\r\n      unselectedItemColor: Colors.grey, // Set unselected icon color\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}

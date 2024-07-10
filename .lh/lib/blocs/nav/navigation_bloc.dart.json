@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/blocs/nav/navigation_bloc.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1720017834305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1720017834305,
+            "name": "Commit-0",
+            "content": "import 'package:bloc/bloc.dart';\r\nimport 'package:equatable/equatable.dart';\r\n\r\npart 'navigation_event.dart';\r\npart 'navigation_state.dart';\r\n\r\nclass NavigationBloc extends Bloc<NavigationEvent, NavigationState> {\r\n  NavigationBloc() : super(NavigationInitial()) {\r\n    on<SelectTab>((event, emit) {\r\n      emit(NavigationSelected(event.index));\r\n    });\r\n  }\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "lib/blocs/news/news_bloc.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1720017834306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1720166308478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,6 +49,7 @@\n   }\r\n \r\n   void _resetNews(ResetNews event, Emitter<NewsState> emit) {\r\n     emit(NewsInitial());\r\n+    add(FetchTopHeadlines());\r\n   }\r\n }\r\n"
+                }
+            ],
+            "date": 1720017834306,
+            "name": "Commit-0",
+            "content": "import 'package:bloc/bloc.dart';\r\nimport 'package:equatable/equatable.dart';\r\nimport 'package:news_today/models/news_models.dart';\r\nimport 'package:news_today/repositories/news_repository.dart';\r\n\r\npart 'news_event.dart';\r\npart 'news_state.dart';\r\n\r\nclass NewsBloc extends Bloc<NewsEvent, NewsState> {\r\n  final NewsRepository newsRepository;\r\n\r\n  NewsBloc({required this.newsRepository}) : super(NewsInitial()) {\r\n    on<FetchTopHeadlines>(_fetchTopHeadlines);\r\n    on<SearchNews>(_searchNews);\r\n    on<FetchCategoryNews>(_fetchCategoryNews);\r\n    on<ResetNews>(_resetNews);\r\n  }\r\n\r\n  Future<void> _fetchTopHeadlines(\r\n      FetchTopHeadlines event, Emitter<NewsState> emit) async {\r\n    try {\r\n      emit(NewsLoading());\r\n      final news = await newsRepository.fetchTopHeadlines();\r\n      emit(NewsLoaded(news, selectedCategory: ''));\r\n    } catch (e) {\r\n      emit(NewsError(\"Failed to fetch news: $e\"));\r\n    }\r\n  }\r\n\r\n  Future<void> _fetchCategoryNews(\r\n      FetchCategoryNews event, Emitter<NewsState> emit) async {\r\n    try {\r\n      emit(NewsLoading());\r\n      final news = await newsRepository.fetchCategoryNews(event.category);\r\n      emit(NewsLoaded(news, selectedCategory: event.category));\r\n    } catch (e) {\r\n      emit(NewsError(\"Failed to fetch category news: $e\"));\r\n    }\r\n  }\r\n\r\n  Future<void> _searchNews(SearchNews event, Emitter<NewsState> emit) async {\r\n    try {\r\n      emit(NewsLoading());\r\n      final news = await newsRepository.searchNews(event.query);\r\n      emit(NewsLoaded(news, selectedCategory: ''));\r\n    } catch (e) {\r\n      emit(NewsError(\"Failed to search news: $e\"));\r\n    }\r\n  }\r\n\r\n  void _resetNews(ResetNews event, Emitter<NewsState> emit) {\r\n    emit(NewsInitial());\r\n  }\r\n}\r\n"
+        }
+    ]
+}

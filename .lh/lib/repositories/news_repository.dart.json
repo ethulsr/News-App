@@ -1,0 +1,22 @@
+{
+    "sourceFile": "lib/repositories/news_repository.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1720077681284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1720164652010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,9 @@\n     return await newsApi.fetchTopHeadlines();\r\n   }\r\n \r\n   Future<List<NewsArticle>> fetchCategoryNews(String category) async {\r\n-    final news = await newsApi.fetchCategoryNews(category);\r\n-    print('Fetched news for category $category: $news');\r\n-    return news;\r\n+    return await newsApi.fetchCategoryNews(category);\r\n   }\r\n \r\n   Future<List<NewsArticle>> searchNews(String query) async {\r\n     return await newsApi.searchNews(query);\r\n"
+                }
+            ],
+            "date": 1720077681284,
+            "name": "Commit-0",
+            "content": "import 'package:news_today/models/news_models.dart';\r\n\r\nimport '../api/news_api.dart';\r\n\r\nclass NewsRepository {\r\n  final NewsApi newsApi = NewsApi();\r\n\r\n  Future<List<NewsArticle>> fetchTopHeadlines() async {\r\n    return await newsApi.fetchTopHeadlines();\r\n  }\r\n\r\n Future<List<NewsArticle>> fetchCategoryNews(String category) async {\r\n    final news = await newsApi.fetchCategoryNews(category);\r\n    print('Fetched news for category $category: $news');\r\n    return news;\r\n  }\r\n\r\n  Future<List<NewsArticle>> searchNews(String query) async {\r\n    return await newsApi.searchNews(query);\r\n  }\r\n}\r\n"
+        }
+    ]
+}

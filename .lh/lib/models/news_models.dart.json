@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/models/news_models.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1720165726621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1720165726621,
+            "name": "Commit-0",
+            "content": "class NewsArticle {\r\n  final String title;\r\n  final String description;\r\n  final String url;\r\n  final String imageUrl;\r\n  final String publishedAt;\r\n  final String content;\r\n  final String category;\r\n\r\n  NewsArticle({\r\n    required this.title,\r\n    required this.description,\r\n    required this.url,\r\n    required this.imageUrl,\r\n    required this.publishedAt,\r\n    required this.content,\r\n    required this.category,\r\n  });\r\n\r\n  factory NewsArticle.fromJson(Map<String, dynamic> json, String category) {\r\n    return NewsArticle(\r\n      title: json['title'] ?? '',\r\n      description: json['description'] ?? '',\r\n      url: json['url'] ?? '',\r\n      imageUrl: json['urlToImage'] ?? '',\r\n      publishedAt: json['publishedAt'] ?? '',\r\n      content: json['content'] ?? '',\r\n      category: category,  // Manually assign the category\r\n    );\r\n  }\r\n\r\n  Map<String, dynamic> toJson() {\r\n    return {\r\n      'title': title,\r\n      'description': description,\r\n      'url': url,\r\n      'urlToImage': imageUrl,\r\n      'publishedAt': publishedAt,\r\n      'content': content,\r\n      'category': category,\r\n    };\r\n  }\r\n}\r\n"
+        }
+    ]
+}

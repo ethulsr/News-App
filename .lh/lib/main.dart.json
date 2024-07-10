@@ -1,0 +1,22 @@
+{
+    "sourceFile": "lib/main.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1720017834302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1720074504043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,10 @@\n \r\n class MyApp extends StatelessWidget {\r\n   final NewsRepository newsRepository = NewsRepository();\r\n \r\n+  MyApp({super.key});\r\n+\r\n   @override\r\n   Widget build(BuildContext context) {\r\n     return MultiBlocProvider(\r\n       providers: [\r\n"
+                }
+            ],
+            "date": 1720017834302,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\nimport 'package:flutter_bloc/flutter_bloc.dart';\r\nimport 'package:news_today/blocs/nav/navigation_bloc.dart';\r\nimport 'package:news_today/blocs/news/news_bloc.dart';\r\nimport 'package:news_today/repositories/news_repository.dart';\r\nimport 'package:news_today/screens/categories_screen.dart';\r\nimport 'package:news_today/screens/main_screen.dart';\r\nimport 'package:news_today/screens/splash_screen.dart';\r\n\r\nvoid main() {\r\n  runApp(MyApp());\r\n}\r\n\r\nclass MyApp extends StatelessWidget {\r\n  final NewsRepository newsRepository = NewsRepository();\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return MultiBlocProvider(\r\n      providers: [\r\n        BlocProvider<NewsBloc>(\r\n          create: (context) => NewsBloc(newsRepository: newsRepository)\r\n            ..add(FetchTopHeadlines()),\r\n        ),\r\n        BlocProvider<NavigationBloc>(\r\n          create: (context) => NavigationBloc(),\r\n        ),\r\n      ],\r\n      child: MaterialApp(\r\n        title: 'News App',\r\n        theme: ThemeData(\r\n          primarySwatch: Colors.blue,\r\n        ),\r\n        home: SplashScreen(),\r\n        routes: {\r\n          '/main': (context) => MainScreen(),\r\n          '/categories': (context) => CategoriesScreen(),\r\n        },\r\n      ),\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}

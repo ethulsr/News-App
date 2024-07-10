@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/blocs/news/news_event.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1720017834306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1720017834306,
+            "name": "Commit-0",
+            "content": "part of 'news_bloc.dart';\r\n\r\nabstract class NewsEvent extends Equatable {\r\n  const NewsEvent();\r\n\r\n  @override\r\n  List<Object> get props => [];\r\n}\r\n\r\nclass FetchTopHeadlines extends NewsEvent {}\r\n\r\nclass FetchCategoryNews extends NewsEvent {\r\n  final String category;\r\n\r\n  const FetchCategoryNews(this.category);\r\n\r\n  @override\r\n  List<Object> get props => [category];\r\n}\r\n\r\nclass SearchNews extends NewsEvent {\r\n  final String query;\r\n\r\n  const SearchNews(this.query);\r\n\r\n  @override\r\n  List<Object> get props => [query];\r\n}\r\n\r\nclass ResetNews extends NewsEvent {}\r\n"
+        }
+    ]
+}

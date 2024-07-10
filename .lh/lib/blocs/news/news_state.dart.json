@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/blocs/news/news_state.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1720017834306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1720017834306,
+            "name": "Commit-0",
+            "content": "part of 'news_bloc.dart';\r\n\r\nabstract class NewsState extends Equatable {\r\n  const NewsState();\r\n\r\n  @override\r\n  List<Object> get props => [];\r\n}\r\n\r\nclass NewsInitial extends NewsState {}\r\n\r\nclass NewsLoading extends NewsState {}\r\n\r\nclass NewsLoaded extends NewsState {\r\n  final List<NewsArticle> news;\r\n  final String selectedCategory;\r\n\r\n  const NewsLoaded(this.news, {required this.selectedCategory});\r\n\r\n  @override\r\n  List<Object> get props => [news, selectedCategory];\r\n}\r\n\r\nclass NewsError extends NewsState {\r\n  final String message;\r\n\r\n  const NewsError(this.message);\r\n\r\n  @override\r\n  List<Object> get props => [message];\r\n}\r\n"
+        }
+    ]
+}

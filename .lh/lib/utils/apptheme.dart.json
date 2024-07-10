@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/utils/apptheme.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1720074504018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1720074504018,
+            "name": "Commit-0",
+            "content": "// ignore_for_file: non_constant_identifier_names\r\n\r\nimport 'package:flutter/material.dart';\r\n\r\nAppTheme apptheme = AppDefaultTheme();\r\n\r\nabstract class AppTheme {\r\n  final Color primaryColor;\r\n  final Color secondaryColor;\r\n  final Color scaffoldColor;\r\n  final Color iconColor1;\r\n  final Color bottomNavBarIconsColor;\r\n  final Color terinaryColor;\r\n  final Color searchBarColor;\r\n  final Color StoreAppBarTitle;\r\n  final TextStyle AppBarTitle;\r\n  final TextStyle bottomNavBarLabel;\r\n  final TextStyle hintTextStyle;\r\n  final TextStyle searchTextStyle;\r\n\r\n  AppTheme(\r\n      {required this.primaryColor,\r\n      required this.secondaryColor,\r\n      required this.scaffoldColor,\r\n      required this.iconColor1,\r\n      required this.bottomNavBarIconsColor,\r\n      required this.terinaryColor,\r\n      required this.searchBarColor,\r\n      required this.StoreAppBarTitle,\r\n      required this.AppBarTitle,\r\n      required this.bottomNavBarLabel,\r\n      required this.hintTextStyle,\r\n      required this.searchTextStyle});\r\n}\r\n\r\nclass AppDefaultTheme extends AppTheme {\r\n  AppDefaultTheme()\r\n      : super(\r\n            primaryColor: Colors.white,\r\n            secondaryColor: Colors.black,\r\n            scaffoldColor: Color.fromARGB(255, 2, 15, 37),\r\n            iconColor1: Colors.grey.shade600,\r\n            bottomNavBarIconsColor: Colors.white,\r\n            terinaryColor: Colors.red,\r\n            searchBarColor: Colors.grey.shade900,\r\n            StoreAppBarTitle: Colors.yellow,\r\n            AppBarTitle:\r\n                TextStyle(fontWeight: FontWeight.bold, color: Colors.white),\r\n            bottomNavBarLabel:\r\n                TextStyle(fontWeight: FontWeight.bold, color: Colors.white),\r\n            hintTextStyle: TextStyle(color: Colors.white.withOpacity(0.2)),\r\n            searchTextStyle: TextStyle(color: Colors.white, fontSize: 16));\r\n}\r\n"
+        }
+    ]
+}

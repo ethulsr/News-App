@@ -1,0 +1,26 @@
+{
+    "sourceFile": "lib/screens/news_search.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1720017834307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1720166529527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -83,5 +83,9 @@\n         ),\r\n       ),\r\n     );\r\n   }\r\n+   void _resetNewsState(BuildContext context) {\r\n+    BlocProvider.of<NewsBloc>(context).add(ResetNews());\r\n+    BlocProvider.of<NewsBloc>(context).add(FetchTopHeadlines());\r\n+  }\r\n }\r\n"
+                },
+                {
+                    "date": 1720166913689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,10 @@\n     return IconButton(\r\n       icon: Icon(Icons.arrow_back, color: Colors.white),\r\n       onPressed: () {\r\n         close(context, null);\r\n+        BlocProvider.of<NewsBloc>(context).add(ResetNews());\r\n+        BlocProvider.of<NewsBloc>(context).add(FetchTopHeadlines());\r\n       },\r\n     );\r\n   }\r\n \r\n@@ -83,10 +85,5 @@\n         ),\r\n       ),\r\n     );\r\n   }\r\n-\r\n-  void _resetNewsState(BuildContext context) {\r\n-    BlocProvider.of<NewsBloc>(context).add(ResetNews());\r\n-    BlocProvider.of<NewsBloc>(context).add(FetchTopHeadlines());\r\n-  }\r\n }\r\n"
+                }
+            ],
+            "date": 1720017834307,
+            "name": "Commit-0",
+            "content": "import 'package:flutter/material.dart';\r\nimport 'package:flutter_bloc/flutter_bloc.dart';\r\nimport 'package:news_today/blocs/news/news_bloc.dart';\r\n\r\nimport 'package:news_today/utils/apptheme.dart';\r\nimport '../widgets/news_list.dart';\r\n\r\nclass NewsSearchDelegate extends SearchDelegate {\r\n  @override\r\n  String get searchFieldLabel => 'Search News';\r\n\r\n  @override\r\n  TextStyle? get searchFieldStyle =>\r\n      TextStyle(color: Colors.white, fontSize: 20);\r\n\r\n  @override\r\n  ThemeData appBarTheme(BuildContext context) {\r\n    return ThemeData(\r\n      appBarTheme: AppBarTheme(\r\n        backgroundColor: apptheme.secondaryColor,\r\n        iconTheme: IconThemeData(color: Colors.white),\r\n      ),\r\n      inputDecorationTheme: InputDecorationTheme(\r\n        hintStyle: TextStyle(color: Colors.white38, fontSize: 20),\r\n        filled: true,\r\n        fillColor: apptheme.secondaryColor,\r\n        border: InputBorder.none,\r\n      ),\r\n    );\r\n  }\r\n\r\n  @override\r\n  List<Widget> buildActions(BuildContext context) {\r\n    return [\r\n      IconButton(\r\n        icon: Icon(Icons.clear, color: Colors.white),\r\n        onPressed: () {\r\n          query = '';\r\n        },\r\n      ),\r\n    ];\r\n  }\r\n\r\n  @override\r\n  Widget buildLeading(BuildContext context) {\r\n    return IconButton(\r\n      icon: Icon(Icons.arrow_back, color: Colors.white),\r\n      onPressed: () {\r\n        close(context, null);\r\n      },\r\n    );\r\n  }\r\n\r\n  @override\r\n  Widget buildResults(BuildContext context) {\r\n    context.read<NewsBloc>().add(SearchNews(query));\r\n    return Scaffold(\r\n      backgroundColor: apptheme.scaffoldColor,\r\n      body: BlocBuilder<NewsBloc, NewsState>(\r\n        builder: (context, state) {\r\n          if (state is NewsLoading) {\r\n            return Center(child: CircularProgressIndicator());\r\n          } else if (state is NewsLoaded) {\r\n            return NewsList(news: state.news);\r\n          } else if (state is NewsError) {\r\n            return Center(child: Text(state.message));\r\n          } else {\r\n            return Container();\r\n          }\r\n        },\r\n      ),\r\n    );\r\n  }\r\n\r\n  @override\r\n  Widget buildSuggestions(BuildContext context) {\r\n    return Scaffold(\r\n      backgroundColor: apptheme.scaffoldColor,\r\n      body: Center(\r\n        child: Text(\r\n          'Search for news articles',\r\n          style: TextStyle(color: Colors.white),\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}
